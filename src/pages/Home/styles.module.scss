@@ -1,0 +1,31 @@
+.home {
+  max-width: 100vw;
+  max-height: fit-content;
+  background-image: url("../../assets/img/Frame.svg");
+  background-repeat: repeat;
+  header {
+    background-color: rgb(56, 22, 22);
+    padding: 1rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+    div {
+      width: fit-content;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    span {
+      color: rgb(198, 7, 7);
+      font-size: 2rem;
+      // line-height: 5rem;
+      font-weight: 700;
+    }
+    svg {
+      width: 2rem;
+    }
+  }
+}
