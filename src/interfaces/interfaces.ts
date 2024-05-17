@@ -355,9 +355,3 @@ export interface ContextProps {
   pokemonsFiltered: string[] | null;
   changeTypeSelected: (type: PokeType) => void;
 }
-export interface BackPattern {
-  svgUrl: string;
-  size?: "cover" | "contain";
-  position?: "top" | "center" | "bottom";
-  repeat?: "repeat" | "repeat-x" | "repeat-y" | "no-repeat";
-}

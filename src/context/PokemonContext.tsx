@@ -1,8 +1,8 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import {
-  AllPokemonsResults,
-  PokemonsByTypeResults,
+  AllPokemonsResult,
+  PokemonsByTypeResult,
   PokeType,
 } from "../interfaces/types";
 import { ContextProps } from "../interfaces/interfaces";
@@ -28,7 +28,7 @@ const PokemonProvider = ({ children }) => {
 
     const { data } = await axios.get(type.url);
     const pokemons = data?.pokemon?.map(
-      ({ pokemon }: PokemonsByTypeResults) => pokemon?.url
+      ({ pokemon }: PokemonsByTypeResult) => pokemon?.url
     );
 
     type.name !== "All"
@@ -48,7 +48,7 @@ const PokemonProvider = ({ children }) => {
     const { data } = await axios.get(allPokemonsUrl);
 
     const pokemons = data.results.map(
-      (pokemon: AllPokemonsResults) => pokemon?.url
+      (pokemon: AllPokemonsResult) => pokemon?.url
     );
 
     setAllPokemons(pokemons);
