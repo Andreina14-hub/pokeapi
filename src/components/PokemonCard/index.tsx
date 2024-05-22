@@ -1,5 +1,5 @@
 import { usePokemon } from "../../hooks/usePokemon";
-import { background } from "../../utils/BackgroundsByType";
+import { PokeTypes, background } from "../../utils/BackgroundsByType";
 import { Link } from "react-router-dom";
 import { Loader } from "../Loader";
 import { PokemonContext } from "../../context/PokemonContext";
@@ -13,16 +13,14 @@ interface Props {
 export const PokemonCard = ({ url }: Props) => {
   const { pokemon } = usePokemon(url);
 
-  /* @ts-ignore */
-
   const pokemonContext = useContext(PokemonContext);
 
   const selected =
     pokemonContext?.filterSelected.name != "All"
       ? pokemonContext?.filterSelected.name
-      : pokemon?.types[0]?.type?.name;
-  const backgroundSelected = background[selected];
+      : (pokemon?.types[0]?.type?.name as PokeTypes);
 
+  const backgroundSelected = background[selected || "All"];
   return (
     <Link to={`/${pokemon?.id}`} className={styles.pokeCard}>
       <div className={styles.top}>

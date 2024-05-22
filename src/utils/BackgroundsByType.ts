@@ -1,4 +1,5 @@
 export type PokeTypes =
+  | "All"
   | "normal"
   | "fighting"
   | "flying"
@@ -19,6 +20,8 @@ export type PokeTypes =
   | "fairy"
   | "shadow";
 export const background: { [key in PokeTypes]: string } = {
+  All: "#F0E78E",
+
   normal: "#F0E78E",
 
   fighting: "#BD3C5A",

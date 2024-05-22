@@ -6,13 +6,13 @@ import { PokemonList } from "../../components/PokemonList";
 import { PokemonContext } from "../../context/PokemonContext";
 import { usePagination } from "../../hooks/usePagination";
 import styles from "./styles.module.scss";
+import { ContextProps } from "../../interfaces/interfaces";
 
 export const Home = () => {
-  const { pokemonsFiltered } = useContext(PokemonContext);
+  const { pokemonsFiltered } = useContext(PokemonContext) as ContextProps;
+
   const { page, nextPage, previousPage, backToHome } = usePagination();
-
   const perPage = 12;
-
   return (
     <div className={styles.home}>
       <header>
@@ -32,7 +32,7 @@ export const Home = () => {
         perPage={perPage}
         nextPage={nextPage}
         previousPage={previousPage}
-        maxItems={pokemonsFiltered?.length}
+        maxItems={pokemonsFiltered?.length || 0}
       />
     </div>
   );

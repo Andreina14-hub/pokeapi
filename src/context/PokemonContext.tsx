@@ -9,7 +9,7 @@ import {
 import { ContextProps } from "../interfaces/interfaces";
 
 const PokemonContext = createContext<ContextProps | null>(null);
-const PokemonProvider = ({ children }) => {
+const PokemonProvider = ({ children }: { children: React.ReactNode }) => {
   const allPokemonsUrl =
     "https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0";
 
@@ -40,9 +40,10 @@ const PokemonProvider = ({ children }) => {
   const getPokemonsType = async () => {
     const { data } = await axios.get("https://pokeapi.co/api/v2/type");
     const results = data.results.filter(
-      (pokemon) => pokemon.name != "stellar" && pokemon.name != "unknown"
+      (pokemons: { name: string }) =>
+        pokemons.name != "stellar" && pokemons.name != "unknown"
     );
-    setTypes([...types, ...results]);
+    setTypes([...results]);
   };
 
   const getAllPokemons = async () => {

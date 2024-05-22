@@ -4,15 +4,16 @@ import { PokemonContext } from "../../context/PokemonContext";
 import { usePagination } from "../../hooks/usePagination";
 import { PokeType } from "../../interfaces/types";
 import { background } from "../../utils/BackgroundsByType";
-
 import styles from "./styles.module.scss";
+import { ContextProps } from "../../interfaces/interfaces";
 
 export const Filters = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const { types, filterSelected, changeTypeSelected } =
-    useContext(PokemonContext);
-  const { changePage } = usePagination();
+  const { types, filterSelected, changeTypeSelected } = useContext(
+    PokemonContext
+  ) as ContextProps;
+  const { changePage } = usePagination(); // Provide type for props
 
   const onChangeType = (type: PokeType) => {
     changePage(1);
