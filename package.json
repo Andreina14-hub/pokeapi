@@ -1,5 +1,6 @@
 {
-  "name": "pokeapi-project",
+  "homepage": "https://andreina14-hub.github.io/pokeapi",
+  "name": "pokeapi",
   "private": true,
   "version": "0.0.0",
   "type": "module",

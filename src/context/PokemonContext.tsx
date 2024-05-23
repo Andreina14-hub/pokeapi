@@ -11,7 +11,7 @@ import { ContextProps } from "../interfaces/interfaces";
 const PokemonContext = createContext<ContextProps | null>(null);
 const PokemonProvider = ({ children }: { children: React.ReactNode }) => {
   const allPokemonsUrl =
-    "https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0";
+    "https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0";
 
   const defaultState: PokeType = {
     name: "All",
